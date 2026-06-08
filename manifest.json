@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "ML Compatibilidade Bot",
+  "version": "1.0",
+  "description": "Executa automação de compatibilidade no Mercado Livre.",
+  "permissions": ["scripting", "activeTab", "tabs"],
+  "host_permissions": ["https://www.mercadolivre.com.br/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ML Compatibilidade"
+  }
+}

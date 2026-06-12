@@ -35,10 +35,11 @@ const CONFIG = {
   }
 
   const marcas = [
-    'Mercedes-Benz', 'Volkswagen', 'Chevrolet', 'Mitsubishi',
+    'Mercedes-Benz','suzuki', 'Volkswagen', 'Chevrolet', 'Mitsubishi',
     'Citroën', 'Citroen', 'Hyundai', 'Renault', 'Peugeot',
     'Toyota', 'Honda', 'Nissan', 'BMW', 'Fiat', 'Ford', 'Jeep',
-    'GM', 'VW', 'Audi', 'Kia', 'Lifan', 'Chery', 'JAC', 'Chrysler'
+    'GM', 'VW', 'Audi', 'Kia', 'Lifan', 'Chery', 'JAC', 'Chrysler','ford','land rover',
+    
   ];
 
   const aliasesMarca = {
@@ -48,6 +49,7 @@ const CONFIG = {
   };
 
   const aliasesModeloPremium = {
+    
     '116': 'Série 1', '118': 'Série 1', '120': 'Série 1', '125': 'Série 1', '128': 'Série 1', '130': 'Série 1', '135': 'Série 1', '140': 'Série 1',
     '316': 'Série 3', '318': 'Série 3', '320': 'Série 3', '323': 'Série 3', '325': 'Série 3', '328': 'Série 3', '330': 'Série 3', '335': 'Série 3', '340': 'Série 3',
     '418': 'Série 4', '420': 'Série 4', '428': 'Série 4', '430': 'Série 4', '435': 'Série 4', '440': 'Série 4',
@@ -63,11 +65,31 @@ const CONFIG = {
     'gla200': 'Classe GLA', 'gla250': 'Classe GLA',
     'glc250': 'Classe GLC', 'glc300': 'Classe GLC',
     'gle350': 'Classe GLE', 'gle400': 'Classe GLE',
-    'ml350': 'Classe ML'
+    'hrv': 'hr-v',
+    'ml350': 'Classe ML',  'suzuki grand vitara': 'grand vitara',
+
+
+    'cr-v':'crv', 'crv':'cr-v', 
+    'crv 2.0': 'cr-v',
+    'crv 2': 'cr-v',
+    'hrv': 'hr-v',
+    'hr-v': 'hrv',
+    'range rover sport':'range rover sport',
+    'Town Country':'Town & country',
+  
+
   };
 
   const mapaModeloMarca = {
+    'Journey': 'Dodge',
+    'Freelander 2': 'Land Rover',
+    'Town country': 'Chrysler',
+    'Town & country': 'Chrysler',
+    'Scenic' : 'Renault',
+    'fusion' : 'ford',
     'polo tsi': 'Volkswagen',
+    'hrv' : 'honda',
+    'hr-v': 'honda',
     'virtus': 'Volkswagen',
     'jetta': 'Volkswagen',
     'golf': 'Volkswagen',
@@ -114,13 +136,21 @@ const CONFIG = {
     'glc250': 'Mercedes-Benz', 'glc300': 'Mercedes-Benz',
     'gle350': 'Mercedes-Benz', 'gle400': 'Mercedes-Benz',
     'ml350': 'Mercedes-Benz',
+    'grand':'suzuki', 'vitara': 'suzuki',
 
     'pulse': 'Fiat',
     'fastback': 'Fiat',
     'grand siena': 'Fiat',
     'argo': 'Fiat',
     'cronos': 'Fiat',
-    'airtrek': 'Mitsubishi'
+    'airtrek': 'Mitsubishi',
+    'fusion' :'ford',
+    'discovery 4': 'land rover',
+    'range rover': 'Land rover',
+    'discovery': 'Land Rover',
+    'ranger rover sport':'land rover',
+    'ranger rover ':'land rover',
+    'Fiesta': 'Ford',
   };
 
   function aplicarAliasModelo(dados) {
@@ -144,7 +174,7 @@ const CONFIG = {
 
     return antesAno
       .replace(
-        /acabamento|retrovisor|moldura|painel|instrumento|tampao|tampão|tampa|porta|capo|capô|farol|lanterna|parabarro|para-barro|grade|parachoque|para-choque|pisca|milha|luz|amortecedor|coxim|alma|suporte|radiador|condensador|ventoinha|eletroventilador|reservatorio|reservatório|sensor|chicote|modulo|módulo|borracha|macaneta|maçaneta|friso|aplique|acab|guia|defletor|spoiler|soleira|coluna|vidro|maquina|máquina|fechadura|trinco|dobradiça|dobradica|forro|capa|carenagem|traseiro|traseira|dianteiro|dianteira|esquerdo|esquerda|direito|direita|inferior|superior|interno|externo|motorista|passageiro|tsi|tfsi|fsi|turbo|flex|diesel|gasolina|alcool|álcool|hibrido|hybrid|16v|8v|12v|20v|24v|v6|v8|ex|exl|lx|lxl|xli|gli|xrs|xei|xle|se|sel|gls|gl|gt|gti|lt|ltz|ls|joy|advantage|exclusive|expression|dynamique|intense|zen|iconic/gi,
+        /acabamento|xls|1.5|comando|ar|condicionado|ar condicionado|controle|botao|botão|difusor|Comando Ar Condicionado|pistao com biela|reservatorio|reservatório|de|radiador|2.0|pistão|pistao|biela|motor|agua|reservatorio agua|volante|retrovisor|moldura|painel|instrumento|tampao|tampão|tampa|porta|capo|capô|farol|lanterna|parabarro|para-barro|grade|parachoque|para-choque|pisca|milha|luz|amortecedor|coxim|alma|suporte|radiador|condensador|ventoinha|eletroventilador|reservatorio|reservatório|sensor|chicote|modulo|módulo|borracha|macaneta|maçaneta|friso|aplique|acab|guia|defletor|spoiler|soleira|coluna|vidro|maquina|máquina|fechadura|trinco|dobradiça|dobradica|forro|capa|carenagem|traseiro|traseira|dianteiro|dianteira|esquerdo|esquerda|direito|direita|inferior|superior|interno|externo|motorista|passageiro|tsi|tfsi|fsi|turbo|flex|diesel|gasolina|alcool|álcool|hibrido|hybrid|16v|8v|12v|20v|24v|v6|v8|ex|exl|lx|lxl|xli|gli|xrs|xei|xle|se|sel|gls|gl|gt|gti|lt|ltz|ls|joy|advantage|exclusive|expression|dynamique|intense|zen|iconic/gi,
         ' '
       )
       .replace(/\b\d+(\.\d+)?\b/g, ' ')
@@ -297,8 +327,8 @@ const CONFIG = {
       '16v','8v','12v','20v','24v','v6','v8',
       '1','10','12','13','14','15','16','18','20','22','24','25','30','32','35','40',
       '1.0','1.2','1.3','1.4','1.5','1.6','1.8','2.0','2.2','2.4','2.5','3.0','3.2','3.5','4.0',
-      'ex','exl','lx','lxl','xli','gli','xrs','xei','xle','se','sel','gls','gl','gt','gti',
-      'lt','ltz','ls','joy','advantage','exclusive','expression','dynamique','intense','zen','iconic'
+      'ex','exl','lx','lxl','xli','gli','xrs','xei','xle','se','sel','gls','gl','gt','gti','xls','xls 1.5',
+      'lt','ltz','ls','joy','advantage','exclusive','expression','dynamique','intense','zen','iconic','1.6','3.0','30',
     ]);
 
     const limparTokens = txt =>
@@ -367,7 +397,7 @@ const CONFIG = {
       'Chevrolet', 'Volkswagen', 'Fiat', 'Ford', 'Hyundai', 'Toyota',
       'Honda', 'Renault', 'Mitsubishi', 'Nissan', 'Jeep', 'Peugeot',
       'Citroën', 'BMW', 'Mercedes-Benz', 'Audi', 'Kia', 'Chrysler',
-      'Lifan', 'JAC', 'Chery'
+      'Lifan', 'JAC', 'Chery','land rover',
     ];
 
     for (const marcaTeste of marcasParaTestar) {
@@ -417,13 +447,13 @@ const CONFIG = {
   async function extrairDadosInteligente() {
     let dados = extrairDadosBase();
 
-    if (!dados.marca || !dados.modelo) {
-      dados = await detectarMarcaModeloPeloML(dados);
-    }
+   if (!dados.marca || !dados.modelo) {
+  dados = aplicarBancoInterno(dados);
+}
 
-    if (!dados.marca || !dados.modelo) {
-      dados = aplicarBancoInterno(dados);
-    }
+if (!dados.marca || !dados.modelo) {
+  dados = await detectarMarcaModeloPeloML(dados);
+}
 
     return aplicarAliasModelo(dados);
   }

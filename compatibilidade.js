@@ -231,6 +231,8 @@ const CONFIG = {
 
     'amarok highline' : 'Amarok',
 
+    'ka 4cc': 'Ka',
+
 
 
 

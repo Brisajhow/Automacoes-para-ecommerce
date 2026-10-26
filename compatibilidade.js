@@ -17,7 +17,7 @@ const CONFIG = {
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
       .replace(/\s+/g, ' ')
-      .trim();
+      .trim(); 
 
   const limparComparacao = txt =>
     normalizar(txt)
@@ -81,6 +81,9 @@ const CONFIG = {
       'crv': 'CR-V',
       'cr v': 'CR-V',
       'cr-v': 'CR-V',
+      'Wrv': 'WR-v',
+    
+
 
       't cross': 'T-Cross',
       't-cross': 'T-Cross',
@@ -132,16 +135,16 @@ const CONFIG = {
       'kicks': 'Kicks',
       'march': 'March',
 
-      'serie 1': 'Série 1',
-      'serie 3': 'Série 3',
-      'serie 4': 'Série 4',
-      'serie 5': 'Série 5',
-      'serie 7': 'Série 7',
-      'série 1': 'Série 1',
-      'série 3': 'Série 3',
-      'série 4': 'Série 4',
-      'série 5': 'Série 5',
-      'série 7': 'Série 7',
+      'serie 1': 'Serie 1',
+      'serie 3': 'Serie 3',
+      'serie 4': 'Serie 4',
+      'serie 5': 'Serie 5',
+      'serie 7': 'Serie 7',
+      'serie 1': 'Serie 1',
+      'serie 3': 'Serie 3',
+      'serie 4': 'Serie 4',
+      'serie 5': 'Serie 5',
+      'série 7': 'Serie 7',
 
       'classe a': 'Classe A',
       'classe b': 'Classe B',
@@ -169,7 +172,7 @@ const CONFIG = {
     'Citroën', 'Citroen', 'Hyundai', 'Renault', 'Peugeot',
     'Toyota', 'Honda', 'Nissan', 'BMW', 'Fiat', 'Ford', 'Jeep',
     'GM', 'VW', 'Audi', 'Kia', 'Lifan', 'Chery', 'JAC', 'Chrysler',
-    'Dodge', 'Land Rover'
+    'Dodge', 'Land Rover','volvo',
   ];
 
   const aliasesMarca = {
@@ -178,12 +181,18 @@ const CONFIG = {
     'Citroen': 'Citroën'
   };
 
+
+//abaixo podemos incluir os carros com suas respectivos modelos quando dar erro na automação 
+
   const aliasesModeloPremium = {
-    '116': 'Série 1', '118': 'Série 1', '120': 'Série 1', '125': 'Série 1', '128': 'Série 1', '130': 'Série 1', '135': 'Série 1', '140': 'Série 1',
-    '316': 'Série 3', '318': 'Série 3', '320': 'Série 3', '323': 'Série 3', '325': 'Série 3', '328': 'Série 3', '330': 'Série 3', '335': 'Série 3', '340': 'Série 3',
-    '418': 'Série 4', '420': 'Série 4', '428': 'Série 4', '430': 'Série 4', '435': 'Série 4', '440': 'Série 4',
-    '518': 'Série 5', '520': 'Série 5', '523': 'Série 5', '525': 'Série 5', '528': 'Série 5', '530': 'Série 5', '535': 'Série 5', '540': 'Série 5', '545': 'Série 5', '550': 'Série 5',
-    '730': 'Série 7', '735': 'Série 7', '740': 'Série 7', '745': 'Série 7', '750': 'Série 7', '760': 'Série 7',
+    'Peugeot 2008': '2008',
+
+
+    '116': 'Serie 1', '118': 'Serie 1', '120': 'Serie 1', '125': 'Serie 1', '128': 'Serie 1', '130': 'Serie 1', '135': 'Serie 1', '140': 'Serie 1',
+    '316': 'Serie 3', '318': 'Serie 3', '320': 'Serie 3', '323': 'Serie 3', '325': 'Serie 3', '328': 'Serie 3', '330': 'Serie 3', '335': 'Serie 3', '340': 'Serie 3',
+    '418': 'Serie 4', '420': 'Serie 4', '428': 'Serie 4', '430': 'Serie 4', '435': 'Serie 4', '440': 'Serie 4',
+    '518': 'Serie 5', '520': 'Serie 5', '523': 'Serie 5', '525': 'Serie 5', '528': 'Serie 5', '530': 'Serie 5', '535': 'Serie 5', '540': 'Serie 5', '545': 'Serie 5', '550': 'Serie 5',
+    '730': 'Serie 7', '735': 'Serie 7', '740': 'Serie 7', '745': 'Serie 7', '750': 'Serie 7', '760': 'Serie 7',
 
     'a160': 'Classe A', 'a180': 'Classe A', 'a200': 'Classe A', 'a250': 'Classe A', 'a35': 'Classe A', 'a45': 'Classe A',
     'b180': 'Classe B', 'b200': 'Classe B', 'b250': 'Classe B',
@@ -191,9 +200,9 @@ const CONFIG = {
     'e200': 'Classe E', 'e220': 'Classe E', 'e250': 'Classe E', 'e280': 'Classe E', 'e300': 'Classe E', 'e320': 'Classe E', 'e350': 'Classe E', 'e400': 'Classe E', 'e43': 'Classe E', 'e53': 'Classe E', 'e63': 'Classe E',
     's320': 'Classe S', 's350': 'Classe S', 's400': 'Classe S', 's450': 'Classe S', 's500': 'Classe S', 's550': 'Classe S', 's560': 'Classe S', 's600': 'Classe S', 's63': 'Classe S',
     'cla180': 'Classe CLA', 'cla200': 'Classe CLA', 'cla250': 'Classe CLA',
-    'gla200': 'Classe GLA', 'gla250': 'Classe GLA',
+    'gla200': 'Classe GLA', 'gla250': 'Classe GLA', 'gla': 'Classe GLA',
     'glc250': 'Classe GLC', 'glc300': 'Classe GLC',
-    'gle350': 'Classe GLE', 'gle400': 'Classe GLE',
+    'gle350': 'Classe GLE', 'gle400': 'Classe GLE', 'E420' :'classe E',
 
     'ml350': 'Classe ML',
 
@@ -204,32 +213,58 @@ const CONFIG = {
     'crv20': 'CR-V',
     'crv2': 'CR-V',
     'hrv': 'HR-V',
+    'wrv': 'WR-v',
+    
 
     'towncountry': 'Town & Country',
     'rangerover': 'Range Rover',
     'rangeroversport': 'Range Rover Sport',
     'rangerover sport': 'Range Rover Sport',
 
-    'x6018': 'X60',
-    'x60': 'X60'
+    'x60': 'X60',
+    'x60': 'X60',
+
+    'Grand Santa fe':'Grand Santa Fé',
+    'Grand Santa Fé':'Grand Santa Fe',
+
+    'Freelander': 'Freelander 2',
+
+    'amarok highline' : 'Amarok',
+
+
+
+
   };
 
+////  Mapear a marca pelo modelo do carro \\
+
   const mapaModeloMarca = {
+
+    
+
+
+
     'c4 pallas': 'Citroën',
     'c4 cactus': 'Citroën',
     'ds3': 'Citroën',
     'c4': 'Citroën',
     'c3': 'Citroën',
 
+    'Tt': 'Audi',
+    'A4 Avant':'Audi',
+    'A4':'Audi',
 
     'versa': 'Nissan',
     'kicks': 'Nissan',
     'march': 'Nissan',
+    'Livina':'Nissan',
 
     'journey': 'Dodge',
 
+    'freelander': 'Land Rover',
     'freelander 2': 'Land Rover',
     'range rover sport': 'Land Rover',
+    'ranger rover sport': 'Land Rover',
     'range rover': 'Land Rover',
     'discovery 4': 'Land Rover',
     'discovery': 'Land Rover',
@@ -238,11 +273,17 @@ const CONFIG = {
     'town country': 'Chrysler',
 
     'scenic': 'Renault',
+    'Captur': 'Renault',
 
     'fusion': 'Ford',
     'fiesta': 'Ford',
+    'Edge':'Ford',
+    'ecosport': 'Ford',
+    'eco sport': 'Ford',
+    'eco sport xls': 'Ford',
+    'ka' : 'Ford',
 
-    'polo tsi': 'Volkswagen',
+    'polo tsi' : 'Volkswagen',
     't-cross': 'Volkswagen',
     't cross': 'Volkswagen',
     'tcross': 'Volkswagen',
@@ -256,11 +297,15 @@ const CONFIG = {
     'polo': 'Volkswagen',
     'passat cc': 'Volkswagen',
     'passat': 'Volkswagen',
+    'Touareg':'Volkswagen',
+    'Amarok' :'Volkswagen',
 
     'hr-v': 'Honda',
     'hrv': 'Honda',
     'cr-v': 'Honda',
     'crv': 'Honda',
+    'Civic':'Honda',
+    'Accord': 'Honda',
 
     'camaro': 'Chevrolet',
     'captiva': 'Chevrolet',
@@ -277,6 +322,9 @@ const CONFIG = {
     'santa fe': 'Hyundai',
     'hb20': 'Hyundai',
     'creta': 'Hyundai',
+    'Azera': 'Hyundai',
+    'Grand Santa Fé':'Hyundai',
+    'i30':'Hyundai',
 
     'x6': 'BMW',
     'x5': 'BMW',
@@ -297,6 +345,7 @@ const CONFIG = {
     'glc250': 'Mercedes-Benz', 'glc300': 'Mercedes-Benz',
     'gle350': 'Mercedes-Benz', 'gle400': 'Mercedes-Benz',
     'ml350': 'Mercedes-Benz',
+    'Gla': 'Mercedes-benz',
 
     'grand vitara': 'Suzuki',
     'vitara': 'Suzuki',
@@ -306,11 +355,40 @@ const CONFIG = {
     'grand siena': 'Fiat',
     'argo': 'Fiat',
     'cronos': 'Fiat',
+    'toro':'fiat',
 
-    'airtrek': 'Mitsubishi',
+    'Airtrek': 'Mitsubishi',
 
-    'x60': 'Lifan'
+    'X60': 'Lifan',
+
+    'Xc60': 'Volvo',
+    'S60': 'volvo',
+
+    'Renegade': 'Jeep',
+    'Compass': 'Jeep',
+
+    'Tiggo': 'Chery',
+    'Tiggo 5x': 'Chery',
+    
+    'Tiggo 7': 'Chery',
+    'QQ': 'Chery',
+
+    'Corolla': 'Toyota',
+    'Etios': 'toyota',
+
+    'Grand Santa Fé':'Hyundai',
+
+    'Duster':'Renault',
+    'Sandero': 'Renault',
+
+    '208': 'Peugeot',
+    '307': 'Peugeot',
+    'Peugeot 2008' : 'Peugeot',
+
+    'ecosport': 'Ford',
+
   };
+
 
   const termosIgnorarModelo = new Set([
     'acabamento','xls','comando','ar','condicionado','controle','botao','botão','difusor',
@@ -323,13 +401,16 @@ const CONFIG = {
     'maçaneta','friso','aplique','acab','guia','defletor','spoiler','soleira','coluna',
     'vidro','maquina','máquina','fechadura','trinco','dobradiça','dobradica','forro',
     'capa','carenagem','traseiro','traseira','dianteiro','dianteira','esquerdo',
-    'esquerda','direito','direita','inferior','superior','interno','interna','externo',
+    'esquerda','detalhe','direito','direita','inferior','superior','interno','interna','externo',
     'externa','motorista','passageiro','de','da','do','dos','das','com','sem','novo',
-    'usado','a','ate','até',
+    'usado','a','ate','ate',
     'tsi','tfsi','fsi','turbo','flex','diesel','gasolina','alcool','álcool','hibrido',
     'hybrid','16v','8v','12v','20v','24v','v6','v8','ex','exl','lx','lxl','xli',
     'gli','xrs','xei','xle','se','sel','gls','gl','gt','gti','lt','ltz','ls','joy',
-    'advantage','exclusive','expression','dynamique','intense','zen','iconic'
+    'advantage','exclusive','expression','dynamique','intense','zen','iconic','preta','preto','4cc','1.5', 'Highline',
+
+
+
   ]);
 
   function aplicarAliasModelo(dados) {
@@ -715,30 +796,71 @@ const CONFIG = {
   }
 
   async function selecionarTodos() {
-    const botaoMenu = [...document.querySelectorAll('button')]
-      .find(btn => btn.getAttribute('aria-label')?.toLowerCase().includes('menu'));
+  // 1. BOTÃO CORRETO: Abrir menu
+  const botaoMenu = document.querySelector(
+    'button.compatibilities-checkbox-dropdown__trigger'
+  );
 
-    if (!botaoMenu) {
-      warn('Menu de seleção não encontrado.');
-      return false;
-    }
-
-    botaoMenu.click();
-    await esperar(700);
-
-    const btn = [...document.querySelectorAll('li')]
-      .find(el => el.innerText?.includes('Selecionar todos'))
-      ?.querySelector('button');
-
-    if (!btn) {
-      warn('Selecionar todos não encontrado.');
-      return false;
-    }
-
-    btn.click();
-    log('Selecionar todos clicado.');
-    return true;
+  if (!botaoMenu) {
+    warn('Botão Abrir menu não encontrado.');
+    return false;
   }
+
+  botaoMenu.click();
+  log('Menu de seleção aberto.');
+
+  await esperar(700);
+
+  // 2. LOCALIZA A OPÇÃO "SELECIONAR TODOS"
+  const opcoes = [...document.querySelectorAll(
+    'button.andes-list__item-actionable'
+  )];
+
+  const botaoSelecionarTodos = opcoes.find(btn => {
+    const texto = normalizar(
+      btn.closest('li')?.innerText ||
+      btn.parentElement?.innerText ||
+      ''
+    );
+
+    return texto.includes('selecionar todos');
+  });
+
+  if (!botaoSelecionarTodos) {
+    warn('Botão "Selecionar todos" não encontrado.');
+    return false;
+  }
+
+  // 3. PEGA O CHECKBOX DA OPÇÃO
+  const container = botaoSelecionarTodos.closest('li');
+
+  const checkbox = container?.querySelector(
+    'input.andes-checkbox__input'
+  );
+
+  if (!checkbox) {
+    warn('Checkbox de "Selecionar todos" não encontrado.');
+    return false;
+  }
+
+  // 4. CLICA NO CHECKBOX
+  if (!checkbox.checked) {
+    checkbox.click();
+    log('Checkbox "Selecionar todos" clicado.');
+  } else {
+    log('Checkbox "Selecionar todos" já estava marcado.');
+  }
+
+  await esperar(500);
+
+  // 5. CLICA NO BOTÃO DA OPÇÃO
+  botaoSelecionarTodos.click();
+  log('Botão "Selecionar todos" clicado.');
+
+  await esperar(1000);
+
+  return true;
+}
 
   function salvar() {
     const btn = document.getElementById(
@@ -773,7 +895,7 @@ const CONFIG = {
     await esperar(1000);
   } else {
     log('Marca/modelo já selecionados pelo detector do ML.');
-    await esperar(1000);
+    await esperar(1400);
   }
 
   await selecionarAnos(dados.anoInicial, dados.anoFinal);
@@ -783,7 +905,7 @@ const CONFIG = {
   await esperar(1800);
 
   await selecionarTodos();
-  await esperar(1000);
+  await esperar(1800);
 
   if (CONFIG.salvarAutomatico) {
     salvar();
